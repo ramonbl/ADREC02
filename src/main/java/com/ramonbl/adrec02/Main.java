@@ -99,6 +99,7 @@ public class Main {
     List<Record> list = handler.getRecords();
 
     //EJ02. Imprimir por pantalla: nº de casos por país el 5 de mayo
+    System.out.println("Nº de casos por país el 5 de mayo");
     for (Record record : list) {
       if (record.getDay() == 5 && record.getMonth() == 5) {
         System.out.println("\nPaís: " + record.getCountriesAndTerritories());
@@ -124,50 +125,50 @@ public class Main {
       }
     }
 
-    System.out.println("\nArrayList con los continentes no repetidos"
-            + "e inicialización de arrays de casos y muertes");
-    for (int i = 0; i < continentesNoRepetidos.size(); i++) {
-      System.out.println(continentesNoRepetidos.get(i));
-      System.out.println(casosContinente.get(i));
-      System.out.println(muertesContinente.get(i));
-    }
+//    System.out.println("\nArrayList con los continentes no repetidos"
+//            + "e inicialización de arrays de casos y muertes");
+//    for (int i = 0; i < continentesNoRepetidos.size(); i++) {
+//      System.out.println(continentesNoRepetidos.get(i));
+//      System.out.println(casosContinente.get(i));
+//      System.out.println(muertesContinente.get(i));
+//    }
 
     int posContinenteEnArrayList = 0;
 
     for (Record record : list) {
       if (record.getDay() == 5 && record.getMonth() == 5) {
         posContinenteEnArrayList = continentesNoRepetidos.indexOf(record.getContinentExp());
-        System.out.println("\n\nContinente: " + record.getContinentExp());
-
-        System.out.println("Posición continente en el arrayList: " + posContinenteEnArrayList);
-        System.out.println("Casos hasta ahora en continente: " + casosContinente.get(posContinenteEnArrayList));
-        System.out.println("Muertes hasta ahora en continente: " + muertesContinente.get(posContinenteEnArrayList));
-
-        System.out.println("\nValores del registro acutal");
-        System.out.println("Casos del registro actual: " + record.getCases());
-
-        System.out.println("Muertes del registro actual: " + record.getDeatchs());
+//        System.out.println("\n\nContinente: " + record.getContinentExp());
+//
+//        System.out.println("Posición continente en el arrayList: " + posContinenteEnArrayList);
+//        System.out.println("Casos hasta ahora en continente: " + casosContinente.get(posContinenteEnArrayList));
+//        System.out.println("Muertes hasta ahora en continente: " + muertesContinente.get(posContinenteEnArrayList));
+//
+//        System.out.println("\nValores del registro acutal");
+//        System.out.println("Casos del registro actual: " + record.getCases());
+//
+//        System.out.println("Muertes del registro actual: " + record.getDeatchs());
 
         casosContinente.set(posContinenteEnArrayList, casosContinente.get(posContinenteEnArrayList) + record.getCases());
-        System.out.println("Casos continente ahora: " + casosContinente.get(posContinenteEnArrayList));
+//        System.out.println("Casos continente ahora: " + casosContinente.get(posContinenteEnArrayList));
 
         muertesContinente.set(posContinenteEnArrayList, muertesContinente.get(posContinenteEnArrayList) + record.getDeatchs());
-        System.out.println("Muertes continente ahora: " + muertesContinente.get(posContinenteEnArrayList));
+//        System.out.println("Muertes continente ahora: " + muertesContinente.get(posContinenteEnArrayList));
 
       }
     }
 
-    System.out.println("\nArrayList con los continentes no repetidos"
-            + "arrays finales de casos y muertes");
-    for (int i = 0; i < continentesNoRepetidos.size(); i++) {
-      System.out.println(continentesNoRepetidos.get(i));
-      System.out.println(casosContinente.get(i));
-      System.out.println(muertesContinente.get(i));
-    }
-
-    System.out.println(continentesNoRepetidos);
-    System.out.println(casosContinente);
-    System.out.println(muertesContinente);
+//    System.out.println("\nArrayList con los continentes no repetidos"
+//            + "arrays finales de casos y muertes");
+//    for (int i = 0; i < continentesNoRepetidos.size(); i++) {
+//      System.out.println(continentesNoRepetidos.get(i));
+//      System.out.println(casosContinente.get(i));
+//      System.out.println(muertesContinente.get(i));
+//    }
+//
+//    System.out.println(continentesNoRepetidos);
+//    System.out.println(casosContinente);
+//    System.out.println(muertesContinente);
 
     List<Continente> continentes = new ArrayList<Continente>();
     Continente continente = new Continente();
@@ -176,19 +177,19 @@ public class Main {
       continentes.add(continente);
     }
 
-    System.out.println(continentes);
+//    System.out.println(continentes);
 
 //    Gson gsonContinentes = new GsonBuilder().setPrettyPrinting().create();
 //    
 //    String jsonContinentes = gsonContinentes.toJson(continentes);
 //    System.out.println("\n\n" +jsonContinentes);
-    System.out.println("\n\n\nPRUEBAA");
+//    System.out.println("\n\n\nPRUEBAA");
 
     Coronavirus coronavirus = new Coronavirus(continentes);
     Gson gsonCoronavirus = new GsonBuilder().setPrettyPrinting().create();
 
     String jsonCoronavirus = gsonCoronavirus.toJson(coronavirus);
-    System.out.println("\n\n" + jsonCoronavirus);
+//    System.out.println("\n\n" + jsonCoronavirus);
 
     javaIOUtils.escribirFicheroJson(jsonCoronavirus, "coronavirus.json");
 
